@@ -1,8 +1,14 @@
 # Flowtriq for Pterodactyl
 
-Real-time DDoS detection and service port protection for [Pterodactyl Panel](https://pterodactyl.io). Automatically syncs game server ports, detects attacks, and deploys on-node firewall rules without manual configuration.
+[![Pterodactyl 1.11+](https://img.shields.io/badge/Pterodactyl-1.11%2B-blue.svg)](https://pterodactyl.io)
+[![PHP 8.1+](https://img.shields.io/badge/PHP-8.1%2B-blue.svg)](https://www.php.net/)
+[![License: Proprietary](https://img.shields.io/badge/License-Proprietary-lightgrey.svg)](LICENSE)
 
-## What it does
+DDoS detection and service port protection for [Pterodactyl Panel](https://pterodactyl.io), powered by [Flowtriq](https://flowtriq.com). Automatically syncs game server ports, detects attacks, and deploys on-node firewall rules without manual configuration.
+
+---
+
+## How It Works
 
 When a player creates a game server in Pterodactyl, this addon automatically:
 
@@ -16,16 +22,16 @@ When a server is deleted or ports change, the addon updates Flowtriq automatical
 
 ## Features
 
-- **Automatic port sync** - game server allocations are synced to Flowtriq service ports on create, update, and delete
-- **Protocol detection** - knows Minecraft is TCP, Rust is UDP, FiveM is both, etc. (20+ games preconfigured)
-- **System port protection** - Wings daemon (8080) and SFTP (2022) are always safelisted
+- **Automatic port sync** -- game server allocations are synced to Flowtriq service ports on create, update, and delete
+- **Protocol detection** -- knows Minecraft is TCP, Rust is UDP, FiveM is both, etc. (20+ games preconfigured)
+- **System port protection** -- Wings daemon (8080) and SFTP (2022) are always safelisted
 - **Two deployment modes**:
-  - `per_wings` - one ftagent per Wings node, each mapped to its own Flowtriq node (recommended)
-  - `central` - one ftagent on the panel server with all ports aggregated
-- **Admin panel** - configure API credentials, deployment mode, and node mappings from the Pterodactyl admin UI
-- **Server owner view** - players see DDoS status, active incidents, and protection status for their server
-- **Background jobs** - polls Flowtriq for node status and active incidents on configurable intervals
-- **Artisan commands** - `flowtriq:install`, `flowtriq:sync`, `flowtriq:status` for CLI management
+  - `per_wings` -- one ftagent per Wings node, each mapped to its own Flowtriq node (recommended)
+  - `central` -- one ftagent on the panel server with all ports aggregated
+- **Admin panel** -- configure API credentials, deployment mode, and node mappings from the Pterodactyl admin UI
+- **Server owner view** -- players see DDoS status, active incidents, and protection status for their server
+- **Background jobs** -- polls Flowtriq for node status and active incidents on configurable intervals
+- **Artisan commands** -- `flowtriq:install`, `flowtriq:sync`, `flowtriq:status` for CLI management
 
 ## Requirements
 
@@ -50,11 +56,11 @@ php artisan migrate
 php artisan flowtriq:install
 ```
 
-The install command will prompt for your Flowtriq API URL and deploy token (found in Flowtriq > Settings > API).
+The install command will prompt for your Flowtriq API URL and deploy token (found in **Flowtriq > Settings > API**).
 
 ## Configuration
 
-### Environment variables
+### Environment Variables
 
 ```env
 FLOWTRIQ_API_URL=https://flowtriq.com
@@ -62,7 +68,7 @@ FLOWTRIQ_DEPLOY_TOKEN=your-deploy-token
 FLOWTRIQ_MODE=per_wings
 ```
 
-### Admin panel
+### Admin Panel
 
 After installation, go to **Admin > Flowtriq** to:
 - Set API credentials
@@ -70,7 +76,7 @@ After installation, go to **Admin > Flowtriq** to:
 - Map Wings nodes to Flowtriq nodes
 - Configure service port sensitivity and response mode
 
-### Config file
+### Config File
 
 Publish the config for full control:
 
@@ -80,7 +86,7 @@ php artisan vendor:publish --tag=flowtriq-config
 
 See `config/flowtriq.php` for all options including protocol detection maps, system ports, and polling intervals.
 
-## Protocol detection
+## Protocol Detection
 
 The addon automatically detects game protocols from Pterodactyl egg names:
 
@@ -95,7 +101,7 @@ The addon automatically detects game protocols from Pterodactyl egg names:
 
 Games not in the list default to `both` (TCP + UDP). You can extend the map in `config/flowtriq.php`.
 
-## Artisan commands
+## Artisan Commands
 
 ```bash
 # Interactive setup wizard
@@ -108,7 +114,7 @@ php artisan flowtriq:sync
 php artisan flowtriq:status
 ```
 
-## How it works
+## Architecture
 
 ```
 Player creates server in Pterodactyl
