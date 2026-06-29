@@ -4,6 +4,8 @@
 [![PHP 8.1+](https://img.shields.io/badge/PHP-8.1%2B-blue.svg)](https://www.php.net/)
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-lightgrey.svg)](LICENSE)
 
+> **[Integration Guide](https://flowtriq.com/integrations/pterodactyl)** | **[Documentation](https://flowtriq.com/docs)** | **[Sign Up](https://flowtriq.com/signup)**
+
 DDoS detection and service port protection for [Pterodactyl Panel](https://pterodactyl.io), powered by [Flowtriq](https://flowtriq.com). Automatically syncs game server ports, detects attacks, and deploys on-node firewall rules without manual configuration.
 
 ---
@@ -147,6 +149,14 @@ ftagent picks up new config within 5 minutes
 - Email: support@flowtriq.com
 - Discord: [discord.gg/PjjaHk5T26](https://discord.gg/PjjaHk5T26)
 
+## Get Started
+
+Start your free 14-day trial at [flowtriq.com/signup](https://flowtriq.com/signup).
+
 ## License
 
 Proprietary. See [LICENSE](LICENSE) for details.
+
+---
+
+Built by [Flowtriq](https://flowtriq.com) - Real-time DDoS detection and mitigation.
