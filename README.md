@@ -147,7 +147,7 @@ ftagent picks up new config within 5 minutes
 - Documentation: [flowtriq.com/docs](https://flowtriq.com/docs)
 - Issues: [github.com/Flowtriq/flowtriq-pterodactyl/issues](https://github.com/Flowtriq/flowtriq-pterodactyl/issues)
 - Email: support@flowtriq.com
-- Discord: [discord.gg/PjjaHk5T26](https://discord.gg/PjjaHk5T26)
+- Discord: [discord.gg/SsTWMYuyGG](https://discord.gg/SsTWMYuyGG)
 
 ## Get Started
 
