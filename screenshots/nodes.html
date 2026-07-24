@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flowtriq - Nodes - Pterodactyl</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@2.4.18/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@2.4.18/dist/css/skins/skin-blue.min.css">
+    <style>
+        body { overflow: hidden; }
+        .sidebar-menu > li.active > a { border-left-color: #3c8dbc !important; }
+        .sidebar-menu > li > a > .fa { width: 20px; }
+        .content-wrapper { min-height: 100vh !important; }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini sidebar-collapse">
+<div class="wrapper">
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <a href="#" class="logo">
+            <span class="logo-mini"><b>P</b></span>
+            <span class="logo-lg"><b>PTERODACTYL</b></span>
+        </a>
+        <nav class="navbar navbar-static-top">
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"><span class="sr-only">Toggle</span></a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <li><a href="#"><i class="fa fa-search"></i></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-server"></i> <span class="label label-success" style="font-size:9px;position:relative;top:-2px;">5</span>
+                        </a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-user"></i> admin</a></li>
+                    <li><a href="#"><i class="fa fa-sign-out"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Left Sidebar -->
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">ADMINISTRATION</li>
+                <li><a href="#"><i class="fa fa-dashboard"></i> <span>Overview</span></a></li>
+                <li><a href="#"><i class="fa fa-plug"></i> <span>Application API</span></a></li>
+                <li><a href="#"><i class="fa fa-database"></i> <span>Databases</span></a></li>
+                <li><a href="#"><i class="fa fa-globe"></i> <span>Locations</span></a></li>
+                <li><a href="#"><i class="fa fa-sitemap"></i> <span>Nodes</span></a></li>
+                <li><a href="#"><i class="fa fa-terminal"></i> <span>Servers</span></a></li>
+                <li><a href="#"><i class="fa fa-users"></i> <span>Users</span></a></li>
+                <li><a href="#"><i class="fa fa-folder"></i> <span>Mounts</span></a></li>
+                <li><a href="#"><i class="fa fa-th"></i> <span>Nests</span></a></li>
+                <li class="header">ADDONS</li>
+                <li class="active treeview menu-open">
+                    <a href="#"><i class="fa fa-shield"></i> <span>Flowtriq</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                    <ul class="treeview-menu" style="display:block;">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Settings</a></li>
+                        <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Nodes</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </aside>
+
+    <!-- Content Wrapper -->
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>Flowtriq Nodes <small>DDoS protection status for your Wings nodes</small></h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Admin</a></li>
+                <li><a href="#">Flowtriq</a></li>
+                <li class="active">Nodes</li>
+            </ol>
+        </section>
+
+        <section class="content">
+            <!-- Wings Nodes Table -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Wings Nodes</h3>
+                            <span class="label label-primary pull-right">Per-Wings Mode</span>
+                        </div>
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Node</th>
+                                        <th>FQDN</th>
+                                        <th>Protection</th>
+                                        <th>PPS</th>
+                                        <th>Service Ports</th>
+                                        <th>Last Sync</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="#">US-East-01</a></td>
+                                        <td><code>us-east-01.nexushost.gg</code></td>
+                                        <td><span class="label label-success">ONLINE</span></td>
+                                        <td>14,230</td>
+                                        <td>12</td>
+                                        <td>2 minutes ago</td>
+                                        <td class="text-right">
+                                            <a href="#" class="btn btn-xs btn-default"><i class="fa fa-eye"></i></a>
+                                            <button class="btn btn-xs btn-info" title="Sync Ports"><i class="fa fa-refresh"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">US-East-02</a></td>
+                                        <td><code>us-east-02.nexushost.gg</code></td>
+                                        <td><span class="label label-success">ONLINE</span></td>
+                                        <td>8,450</td>
+                                        <td>8</td>
+                                        <td>1 minute ago</td>
+                                        <td class="text-right">
+                                            <a href="#" class="btn btn-xs btn-default"><i class="fa fa-eye"></i></a>
+                                            <button class="btn btn-xs btn-info" title="Sync Ports"><i class="fa fa-refresh"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr class="danger">
+                                        <td><a href="#">EU-West-01</a></td>
+                                        <td><code>eu-west-01.nexushost.gg</code></td>
+                                        <td><span class="label label-danger">ATTACK</span></td>
+                                        <td>1,892,400</td>
+                                        <td>15</td>
+                                        <td>30 seconds ago</td>
+                                        <td class="text-right">
+                                            <a href="#" class="btn btn-xs btn-default"><i class="fa fa-eye"></i></a>
+                                            <button class="btn btn-xs btn-info" title="Sync Ports"><i class="fa fa-refresh"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">US-West-01</a></td>
+                                        <td><code>us-west-01.nexushost.gg</code></td>
+                                        <td><span class="label label-success">ONLINE</span></td>
+                                        <td>5,120</td>
+                                        <td>6</td>
+                                        <td>3 minutes ago</td>
+                                        <td class="text-right">
+                                            <a href="#" class="btn btn-xs btn-default"><i class="fa fa-eye"></i></a>
+                                            <button class="btn btn-xs btn-info" title="Sync Ports"><i class="fa fa-refresh"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#">AP-East-01</a></td>
+                                        <td><code>ap-east-01.nexushost.gg</code></td>
+                                        <td><span class="label label-default">OFFLINE</span></td>
+                                        <td>0</td>
+                                        <td>4</td>
+                                        <td>15 minutes ago</td>
+                                        <td class="text-right">
+                                            <a href="#" class="btn btn-xs btn-default"><i class="fa fa-eye"></i></a>
+                                            <button class="btn btn-xs btn-info" title="Sync Ports"><i class="fa fa-refresh"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+</body>
+</html>

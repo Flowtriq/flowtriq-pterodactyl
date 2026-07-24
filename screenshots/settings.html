@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flowtriq DDoS Protection - Pterodactyl</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@2.4.18/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@2.4.18/dist/css/skins/skin-blue.min.css">
+    <style>
+        body { overflow: hidden; }
+        .sidebar-menu > li.active > a { border-left-color: #3c8dbc !important; }
+        .sidebar-menu > li > a > .fa { width: 20px; }
+        .content-wrapper { min-height: 100vh !important; }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini sidebar-collapse">
+<div class="wrapper">
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <a href="#" class="logo">
+            <span class="logo-mini"><b>P</b></span>
+            <span class="logo-lg"><b>PTERODACTYL</b></span>
+        </a>
+        <nav class="navbar navbar-static-top">
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"><span class="sr-only">Toggle</span></a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <li><a href="#"><i class="fa fa-search"></i></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-server"></i> <span class="label label-success" style="font-size:9px;position:relative;top:-2px;">5</span>
+                        </a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-user"></i> admin</a></li>
+                    <li><a href="#"><i class="fa fa-sign-out"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Left Sidebar -->
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">ADMINISTRATION</li>
+                <li><a href="#"><i class="fa fa-dashboard"></i> <span>Overview</span></a></li>
+                <li><a href="#"><i class="fa fa-plug"></i> <span>Application API</span></a></li>
+                <li><a href="#"><i class="fa fa-database"></i> <span>Databases</span></a></li>
+                <li><a href="#"><i class="fa fa-globe"></i> <span>Locations</span></a></li>
+                <li><a href="#"><i class="fa fa-sitemap"></i> <span>Nodes</span></a></li>
+                <li><a href="#"><i class="fa fa-terminal"></i> <span>Servers</span></a></li>
+                <li><a href="#"><i class="fa fa-users"></i> <span>Users</span></a></li>
+                <li><a href="#"><i class="fa fa-folder"></i> <span>Mounts</span></a></li>
+                <li><a href="#"><i class="fa fa-th"></i> <span>Nests</span></a></li>
+                <li class="header">ADDONS</li>
+                <li class="active treeview menu-open">
+                    <a href="#"><i class="fa fa-shield"></i> <span>Flowtriq</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                    <ul class="treeview-menu" style="display:block;">
+                        <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Settings</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Nodes</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </aside>
+
+    <!-- Content Wrapper -->
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>Flowtriq DDoS Protection <small>Configure your Flowtriq integration</small></h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Admin</a></li>
+                <li class="active">Flowtriq</li>
+            </ol>
+        </section>
+
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        Settings saved successfully. 5 nodes synced.
+                    </div>
+                </div>
+            </div>
+
+            <form>
+                <!-- API Connection -->
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="box box-primary">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">API Connection</h3>
+                            </div>
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="api_url">API URL</label>
+                                    <input type="text" name="api_url" class="form-control" value="https://flowtriq.com">
+                                    <p class="text-muted small">Flowtriq API base URL. Leave default unless using white-label domain.</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="deploy_token">Deploy Token</label>
+                                    <input type="password" name="deploy_token" class="form-control" value="a8f3c21b9d4e67f0123456789abcdef0123456789abcdef0123456789abcdef01">
+                                    <p class="text-muted small">Found in Flowtriq Dashboard &gt; Settings &gt; API Keys.</p>
+                                </div>
+                                <button type="button" class="btn btn-sm btn-default">
+                                    <i class="fa fa-plug"></i> Test Connection
+                                </button>
+                                <span class="text-sm text-success" style="margin-left: 10px;">
+                                    <i class="fa fa-check"></i> Connected &mdash; 5 nodes linked, 45 service ports synced
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Deployment Mode -->
+                    <div class="col-md-4">
+                        <div class="box box-info">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Deployment Mode</h3>
+                            </div>
+                            <div class="box-body">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="deployment_mode" value="central">
+                                        <strong>Central</strong>
+                                        <p class="text-muted small" style="margin-left: 20px;">
+                                            One ftagent on the panel server. All game server ports aggregated into a single Flowtriq node.
+                                            Best for single-machine setups.
+                                        </p>
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="deployment_mode" value="per_wings" checked>
+                                        <strong>Per-Wings</strong>
+                                        <p class="text-muted small" style="margin-left: 20px;">
+                                            One ftagent per Wings node. Each node gets its own Flowtriq node with independent protection.
+                                            Supports white-label sub-workspaces.
+                                        </p>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Port Detection -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="box box-default">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Service Port Detection</h3>
+                            </div>
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="sp_sensitivity">Sensitivity</label>
+                                    <select name="sp_sensitivity" class="form-control">
+                                        <option value="relaxed">Relaxed</option>
+                                        <option value="standard" selected>Standard</option>
+                                        <option value="aggressive">Aggressive</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sp_response_mode">Response Mode</label>
+                                    <select name="sp_response_mode" class="form-control">
+                                        <option value="full" selected>Full (on-node blocking)</option>
+                                        <option value="pipeline">Pipeline (cloud-only)</option>
+                                        <option value="onnode">On-Node (hybrid)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button type="button" class="btn btn-success">
+                            <i class="fa fa-save"></i> Save Settings
+                        </button>
+                        <a href="#" class="btn btn-default" style="margin-left: 10px;">
+                            <i class="fa fa-server"></i> Manage Nodes
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+</body>
+</html>
