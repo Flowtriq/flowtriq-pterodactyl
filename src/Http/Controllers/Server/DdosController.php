@@ -37,7 +37,7 @@ class DdosController extends Controller
             ->get();
 
         $ports = $allocations->pluck('port')->map(fn($p) => (int) $p)->toArray();
-        $primaryIp = $allocations->first()->ip ?? $server->ip ?? '-';
+        $primaryIp = $allocations->first()?->ip ?? $server->ip ?? '-';
 
         // Get incidents filtered to this server's ports
         $incidents = collect();
@@ -123,9 +123,21 @@ class DdosController extends Controller
      */
     private function resolveServer(string $uuid)
     {
-        return DB::table('servers')
+        $server = DB::table('servers')
             ->where('uuid', $uuid)
             ->orWhere('uuidShort', $uuid)
             ->first();
+
+        if (!$server) {
+            return null;
+        }
+
+        // Verify the authenticated user owns this server or is an admin
+        $user = auth()->user();
+        if ($user && !$user->root_admin && (int) $server->owner_id !== (int) $user->id) {
+            return null;
+        }
+
+        return $server;
     }
 }

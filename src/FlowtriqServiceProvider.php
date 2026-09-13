@@ -43,8 +43,8 @@ class FlowtriqServiceProvider extends ServiceProvider
         // Register scheduled jobs
         $this->app->booted(function () {
             $schedule = $this->app->make(Schedule::class);
-            $schedule->job(new PollNodeStatusJob)->everyMinute();
-            $schedule->job(new PollIncidentsJob)->everyThirtySeconds();
+            $schedule->job(new PollNodeStatusJob)->everyMinute()->withoutOverlapping();
+            $schedule->job(new PollIncidentsJob)->everyThirtySeconds()->withoutOverlapping();
         });
 
         // Register artisan commands

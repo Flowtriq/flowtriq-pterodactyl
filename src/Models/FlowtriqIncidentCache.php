@@ -61,20 +61,20 @@ class FlowtriqIncidentCache extends Model
      */
     public static function forPorts(int $nodeId, array $ports, int $limit = 25)
     {
-        return static::where('pterodactyl_node_id', $nodeId)
-            ->orderByDesc('started_at')
-            ->limit($limit)
-            ->get()
-            ->filter(function ($incident) use ($ports) {
-                // IP-level attacks affect everyone on the node
-                if (empty($incident->target_ports)) {
-                    return true;
-                }
+        $query = static::where('pterodactyl_node_id', $nodeId);
 
-                // Check for port overlap
-                return !empty(array_intersect($incident->target_ports, $ports));
-            })
-            ->values();
+        if (!empty($ports)) {
+            $query->where(function ($q) use ($ports) {
+                $q->whereNull('target_ports');
+                foreach ($ports as $port) {
+                    $q->orWhereJsonContains('target_ports', (int) $port);
+                }
+            });
+        }
+
+        return $query->orderByDesc('started_at')
+            ->limit($limit)
+            ->get();
     }
 
     /**
