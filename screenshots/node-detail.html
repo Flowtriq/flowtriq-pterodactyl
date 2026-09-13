@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flowtriq - EU-West-01 - Pterodactyl</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@2.4.18/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@2.4.18/dist/css/skins/skin-blue.min.css">
+    <style>
+        body { overflow: hidden; }
+        .sidebar-menu > li.active > a { border-left-color: #3c8dbc !important; }
+        .sidebar-menu > li > a > .fa { width: 20px; }
+        .content-wrapper { min-height: 100vh !important; }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini sidebar-collapse">
+<div class="wrapper">
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <a href="#" class="logo">
+            <span class="logo-mini"><b>P</b></span>
+            <span class="logo-lg"><b>PTERODACTYL</b></span>
+        </a>
+        <nav class="navbar navbar-static-top">
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"><span class="sr-only">Toggle</span></a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <li><a href="#"><i class="fa fa-search"></i></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-server"></i> <span class="label label-success" style="font-size:9px;position:relative;top:-2px;">5</span>
+                        </a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-user"></i> admin</a></li>
+                    <li><a href="#"><i class="fa fa-sign-out"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Left Sidebar -->
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">ADMINISTRATION</li>
+                <li><a href="#"><i class="fa fa-dashboard"></i> <span>Overview</span></a></li>
+                <li><a href="#"><i class="fa fa-plug"></i> <span>Application API</span></a></li>
+                <li><a href="#"><i class="fa fa-database"></i> <span>Databases</span></a></li>
+                <li><a href="#"><i class="fa fa-globe"></i> <span>Locations</span></a></li>
+                <li><a href="#"><i class="fa fa-sitemap"></i> <span>Nodes</span></a></li>
+                <li><a href="#"><i class="fa fa-terminal"></i> <span>Servers</span></a></li>
+                <li><a href="#"><i class="fa fa-users"></i> <span>Users</span></a></li>
+                <li><a href="#"><i class="fa fa-folder"></i> <span>Mounts</span></a></li>
+                <li><a href="#"><i class="fa fa-th"></i> <span>Nests</span></a></li>
+                <li class="header">ADDONS</li>
+                <li class="active treeview menu-open">
+                    <a href="#"><i class="fa fa-shield"></i> <span>Flowtriq</span> <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                    <ul class="treeview-menu" style="display:block;">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Settings</a></li>
+                        <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Nodes</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </aside>
+
+    <!-- Content Wrapper -->
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>EU-West-01 <small>DDoS protection details</small></h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Admin</a></li>
+                <li><a href="#">Flowtriq</a></li>
+                <li><a href="#">Nodes</a></li>
+                <li class="active">EU-West-01</li>
+            </ol>
+        </section>
+
+        <section class="content">
+            <!-- Protection Status + Service Ports -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="box box-danger">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Protection Status</h3>
+                        </div>
+                        <div class="box-body">
+                            <div class="text-center" style="padding: 20px 0;">
+                                <span class="label label-danger" style="font-size: 18px; padding: 8px 20px;">
+                                    ATTACK
+                                </span>
+                            </div>
+                            <table class="table table-condensed">
+                                <tr>
+                                    <td>Flowtriq Node</td>
+                                    <td><code style="font-size: 11px;">a7c3f89d-2b4e-4f1a-9c6d-8e5f2a3b7c1d</code></td>
+                                </tr>
+                                <tr>
+                                    <td>Current PPS</td>
+                                    <td>1,892,400</td>
+                                </tr>
+                                <tr>
+                                    <td>Current BPS</td>
+                                    <td>6,423,000,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Last Synced</td>
+                                    <td>30 seconds ago</td>
+                                </tr>
+                                <tr>
+                                    <td>Last Status Check</td>
+                                    <td>15 seconds ago</td>
+                                </tr>
+                            </table>
+                            <div style="margin-top: 10px;">
+                                <button class="btn btn-sm btn-info">
+                                    <i class="fa fa-refresh"></i> Force Sync
+                                </button>
+                                <button class="btn btn-sm btn-danger" style="margin-left: 5px;">
+                                    <i class="fa fa-chain-broken"></i> Unlink
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Ports -->
+                <div class="col-md-8">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Service Ports (15)</h3>
+                        </div>
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Port</th>
+                                        <th>IP</th>
+                                        <th>Server</th>
+                                        <th>Game</th>
+                                        <th>Protocol</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>25565</code></td>
+                                        <td>203.0.113.10</td>
+                                        <td>SurvivalCraft SMP</td>
+                                        <td>Minecraft Java</td>
+                                        <td><span class="label label-primary">TCP</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>25566</code></td>
+                                        <td>203.0.113.10</td>
+                                        <td>Creative Hub</td>
+                                        <td>Minecraft Java</td>
+                                        <td><span class="label label-primary">TCP</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>19132</code></td>
+                                        <td>203.0.113.10</td>
+                                        <td>Bedrock Crossplay</td>
+                                        <td>Minecraft Bedrock</td>
+                                        <td><span class="label label-warning">UDP</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>28015</code></td>
+                                        <td>203.0.113.11</td>
+                                        <td>Rust Vanilla #1</td>
+                                        <td>Rust</td>
+                                        <td><span class="label label-info">BOTH</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>28016</code></td>
+                                        <td>203.0.113.11</td>
+                                        <td>Rust Modded 3x</td>
+                                        <td>Rust</td>
+                                        <td><span class="label label-info">BOTH</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>30120</code></td>
+                                        <td>203.0.113.12</td>
+                                        <td>RP City FiveM</td>
+                                        <td>FiveM</td>
+                                        <td><span class="label label-warning">UDP</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>30121</code></td>
+                                        <td>203.0.113.12</td>
+                                        <td>FiveM Racing</td>
+                                        <td>FiveM</td>
+                                        <td><span class="label label-warning">UDP</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>7777</code></td>
+                                        <td>203.0.113.13</td>
+                                        <td>ARK Survival</td>
+                                        <td>ARK: SE</td>
+                                        <td><span class="label label-warning">UDP</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>27015</code></td>
+                                        <td>203.0.113.13</td>
+                                        <td>GMod DarkRP</td>
+                                        <td>Garry's Mod</td>
+                                        <td><span class="label label-warning">UDP</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>2456</code></td>
+                                        <td>203.0.113.14</td>
+                                        <td>Valheim Norse</td>
+                                        <td>Valheim</td>
+                                        <td><span class="label label-warning">UDP</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>8211</code></td>
+                                        <td>203.0.113.14</td>
+                                        <td>Palworld Co-op</td>
+                                        <td>Palworld</td>
+                                        <td><span class="label label-warning">UDP</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>16261</code></td>
+                                        <td>203.0.113.14</td>
+                                        <td>Project Zomboid</td>
+                                        <td>Project Zomboid</td>
+                                        <td><span class="label label-warning">UDP</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>27016</code></td>
+                                        <td>203.0.113.15</td>
+                                        <td>CS2 Competitive</td>
+                                        <td>CS2</td>
+                                        <td><span class="label label-info">BOTH</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>2302</code></td>
+                                        <td>203.0.113.15</td>
+                                        <td>DayZ Survival</td>
+                                        <td>DayZ</td>
+                                        <td><span class="label label-warning">UDP</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>15636</code></td>
+                                        <td>203.0.113.15</td>
+                                        <td>Satisfactory World</td>
+                                        <td>Satisfactory</td>
+                                        <td><span class="label label-warning">UDP</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Incidents -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box box-default">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Recent Incidents</h3>
+                        </div>
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Attack Type</th>
+                                        <th>Severity</th>
+                                        <th>Peak PPS</th>
+                                        <th>Peak BPS</th>
+                                        <th>Status</th>
+                                        <th>Duration</th>
+                                        <th>Target Ports</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="danger">
+                                        <td>Jul 8, 14:32:18</td>
+                                        <td>UDP Flood</td>
+                                        <td><span class="label label-danger">CRITICAL</span></td>
+                                        <td>1,892,400</td>
+                                        <td>6.4 Gbps</td>
+                                        <td><span class="label label-danger">ACTIVE</span></td>
+                                        <td>4m 12s</td>
+                                        <td>30120, 30121</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jul 8, 09:15:42</td>
+                                        <td>DNS Amplification</td>
+                                        <td><span class="label label-warning">HIGH</span></td>
+                                        <td>845,200</td>
+                                        <td>2.8 Gbps</td>
+                                        <td><span class="label label-success">RESOLVED</span></td>
+                                        <td>8m 34s</td>
+                                        <td>25565</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jul 7, 22:48:11</td>
+                                        <td>TCP SYN Flood</td>
+                                        <td><span class="label label-warning">HIGH</span></td>
+                                        <td>623,000</td>
+                                        <td>1.2 Gbps</td>
+                                        <td><span class="label label-success">RESOLVED</span></td>
+                                        <td>3m 45s</td>
+                                        <td>28015, 28016</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jul 7, 16:20:33</td>
+                                        <td>NTP Reflection</td>
+                                        <td><span class="label label-info">INFO</span></td>
+                                        <td>124,500</td>
+                                        <td>420 Mbps</td>
+                                        <td><span class="label label-success">RESOLVED</span></td>
+                                        <td>1m 12s</td>
+                                        <td>7777</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jul 6, 03:14:55</td>
+                                        <td>UDP Flood</td>
+                                        <td><span class="label label-danger">CRITICAL</span></td>
+                                        <td>2,145,000</td>
+                                        <td>7.1 Gbps</td>
+                                        <td><span class="label label-success">RESOLVED</span></td>
+                                        <td>12m 08s</td>
+                                        <td><span class="text-muted">All (IP-level)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+</body>
+</html>

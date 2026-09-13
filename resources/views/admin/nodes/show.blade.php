@@ -193,7 +193,11 @@
                     </div>
                     <div class="box-body">
                         <p class="text-muted small">Run these commands on the Wings host (<code>{{ $pteroNode->fqdn }}</code>) to install the Flowtriq agent:</p>
-                        <pre style="background: #1a1a2e; color: #16c784; padding: 15px; border-radius: 4px;">pip install ftagent
+                        <pre style="background: #1a1a2e; color: #16c784; padding: 15px; border-radius: 4px;"># Recommended: one-line install
+curl -sSL https://flowtriq.com/install.sh | sudo bash
+
+# Or install manually:
+pip install ftagent
 sudo ftagent --setup \
   --node-uuid {{ $map->flowtriq_node_uuid }} \
   --api-key {{ $map->flowtriq_api_key }}
