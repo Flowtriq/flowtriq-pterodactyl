@@ -96,7 +96,6 @@ class FlowtriqApiClient
         string $overrideToken = ''
     ): array {
         return $this->updateNode($nodeUuid, [
-            'sp_enabled' => true,
             'sp_sensitivity' => $sensitivity,
             'sp_response_mode' => $responseMode,
             'service_ports' => $ports,
