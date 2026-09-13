@@ -98,11 +98,20 @@ class NodeController extends Controller
 
         $api = app(FlowtriqApiClient::class);
 
+        // Resolve FQDN to IP — Flowtriq API requires a valid IP address
+        $nodeIp = filter_var($pteroNode->fqdn, FILTER_VALIDATE_IP)
+            ? $pteroNode->fqdn
+            : gethostbyname($pteroNode->fqdn);
+
+        if (!filter_var($nodeIp, FILTER_VALIDATE_IP)) {
+            return back()->with('error', 'Could not resolve ' . $pteroNode->fqdn . ' to an IP address.');
+        }
+
         if ($request->input('action') === 'create') {
             // Create a new Flowtriq node
             $result = $api->createNode(
                 'Pterodactyl: ' . $pteroNode->name,
-                $pteroNode->fqdn
+                $nodeIp
             );
 
             if (!($result['ok'] ?? false)) {
@@ -115,7 +124,7 @@ class NodeController extends Controller
                 'pterodactyl_node_id' => $nodeId,
                 'flowtriq_node_uuid' => $node['uuid'] ?? '',
                 'flowtriq_api_key' => $node['node_key'] ?? $node['api_key'] ?? '',
-                'flowtriq_ip' => $pteroNode->fqdn,
+                'flowtriq_ip' => $nodeIp,
             ]);
         } else {
             // Link to existing Flowtriq node
@@ -123,7 +132,7 @@ class NodeController extends Controller
                 'pterodactyl_node_id' => $nodeId,
                 'flowtriq_node_uuid' => $request->input('flowtriq_node_uuid'),
                 'flowtriq_api_key' => $request->input('flowtriq_api_key'),
-                'flowtriq_ip' => $pteroNode->fqdn,
+                'flowtriq_ip' => $nodeIp,
             ]);
         }
 
