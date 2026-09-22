@@ -25,19 +25,22 @@ class PollIncidentsJob implements ShouldQueue
         foreach ($maps as $map) {
             $overrideToken = $map->flowtriq_workspace_uuid ? ($map->flowtriq_api_key ?? '') : '';
 
-            $result = $api->getIncidents($map->flowtriq_node_uuid, 10, $overrideToken);
+            $result = $api->getIncidents($map->flowtriq_node_uuid, 25, $overrideToken);
 
             if (!($result['ok'] ?? false)) {
                 continue;
             }
 
             $incidents = $result['incidents'] ?? $result['data'] ?? [];
+            $polledUuids = [];
 
             foreach ($incidents as $incident) {
                 $uuid = $incident['uuid'] ?? null;
                 if (!$uuid) {
                     continue;
                 }
+
+                $polledUuids[] = $uuid;
 
                 // Extract target ports from incident data
                 $targetPorts = $this->extractTargetPorts($incident);
@@ -59,6 +62,12 @@ class PollIncidentsJob implements ShouldQueue
                     ]
                 );
             }
+
+            // Mark stale "active" incidents as resolved if they weren't in the poll results
+            FlowtriqIncidentCache::where('flowtriq_node_uuid', $map->flowtriq_node_uuid)
+                ->where('status', 'active')
+                ->when(!empty($polledUuids), fn($q) => $q->whereNotIn('flowtriq_incident_uuid', $polledUuids))
+                ->update(['status' => 'resolved', 'resolved_at' => now()]);
         }
     }
 
